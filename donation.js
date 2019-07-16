@@ -32,6 +32,5 @@ async function donate(lockAddress, element) {
   signer.getAddress().then(address => {
     let w = contract.connect(signer);
     w["purchaseFor(address)"](address, { value: value, gasLimit: 300000 });
-    w["purchaseFor(address)"](address, { gasLimit: 300000 });
   });
 }
