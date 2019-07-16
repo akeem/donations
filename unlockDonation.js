@@ -13,7 +13,7 @@ function extractDescription() {
 function iframeSource() {
   let lockAddress = extractLockAddress();
   let description = encodeURIComponent(extractDescription());
-  return `https://delightful-property.glitch.me/button.html?lockAddress=${lockAddress}&description=${description}`;
+  return `https://akeem.github.io/button.html?lockAddress=${lockAddress}&description=${description}`;
 }
 
 let donationDiv = document.getElementById("unlock-donation");
