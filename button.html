@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    
+    <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+        charset="utf-8"
+        type="text/javascript">
+   </script>
+    
+        <script src="./donation.js"
+        charset="utf-8"
+        type="text/javascript">
+   </script>       
+    
+    <script>
+      let lockAddress = extractLockAddress() 
+      let description = extractDescription()
+    </script>
+  </head>  
+  
+  <body>      
+    
+    <div class="box">
+      <div class="content">
+        <p>      
+          
+          ${description}
+          
+          Your donations are an indication of your membership as part of this community, you will receive an NFT providing you will
+          access to exclusive events.
+        </p>
+        
+        <p>  
+          
+          <a class="button" onclick="donate(lockAddress, this)" data-amount="5">$5</a>   
+          <a class="button" onclick="donate(lockAddress, this)" data-amount="10">$10</a>   
+          <a class="button" onclick="donate(lockAddress, this)" data-amount="15">$15</a>   
+        
+          </p>
+          
+          <div class="columns is-mobile is-centered is-vcentered">            
+            <div class="column">
+              <span>
+                  <figure class="image is-16x16">
+              <img class="is-rounded" src="https://unlock-protocol.com/static/images/unlock.png"/>
+            </figure>
+                </span>
+               <span>Powered By Unlock</span>   
+              
+            </div>                               
+        </div>
+        
+        
+      </div>
+         
+    </div>            
+  </body>
+</html>
