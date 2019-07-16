@@ -18,7 +18,7 @@ async function ethPriceConversion(price){
   return price/Number(foo.data.amount)
 }
 
-function donate(lockAddress, element) {
+async function donate(lockAddress, element) {
   let buttonValue = element.getAttribute("data-amount");
 
   let convertedPrice = await ethPriceConversion(5) 
