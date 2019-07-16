@@ -20,7 +20,12 @@ async function ethPriceConversion(price){
 
 function donate(lockAddress, element) {
   let buttonValue = element.getAttribute("data-amount");
-  let value = ethers.utils.parseUnits(ethPriceConversion(buttonValue), 18);
+  // let value = ethers.utils.parseUnits(ethPriceConversion(buttonValue), 18);
+
+  console.log('what is this value', ethPriceConversion(5))
+  console.log('this is the button value', buttonValue)
+  
+  let value = ethers.utils.parseUnits(buttonValue, 18);
 
   let abi = ["function purchaseFor(address _recipient) payable"];
   let provider = new ethers.providers.Web3Provider(web3.currentProvider);
