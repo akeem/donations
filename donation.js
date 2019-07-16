@@ -10,9 +10,17 @@ function extractDescription() {
   return params.get("description");
 }
 
+async function ethPriceConversion(price){
+  let url = 'https://api.coinbase.com/v2/prices/ETH-USD/buy'
+  let result = await fetch(url)
+  let foo = await result.json()
+  
+  return price/Number(foo.data.amount)
+}
+
 function donate(lockAddress, element) {
   let buttonValue = element.getAttribute("data-amount");
-  let value = ethers.utils.parseUnits(buttonValue, 18);
+  let value = ethers.utils.parseUnits(ethPriceConversion(buttonValue), 18);
 
   let abi = ["function purchaseFor(address _recipient) payable"];
   let provider = new ethers.providers.Web3Provider(web3.currentProvider);
@@ -22,5 +30,6 @@ function donate(lockAddress, element) {
   signer.getAddress().then(address => {
     let w = contract.connect(signer);
     w["purchaseFor(address)"](address, { value: value, gasLimit: 300000 });
+    w["purchaseFor(address)"](address, { gasLimit: 300000 });
   });
 }

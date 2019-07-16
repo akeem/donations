@@ -13,7 +13,8 @@ function extractDescription() {
 function iframeSource() {
   let lockAddress = extractLockAddress();
   let description = encodeURIComponent(extractDescription());
-  return `https://akeem.github.io/donations/button.html?lockAddress=${lockAddress}&description=${description}`;
+  // return `https://akeem.github.io/donations/button.html?lockAddress=${lockAddress}&description=${description}`;
+  return `./button.html?lockAddress=${lockAddress}&description=${description}`;
 }
 
 let donationDiv = document.getElementById("unlock-donation");
