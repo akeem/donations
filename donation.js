@@ -15,15 +15,14 @@ async function ethPriceConversion(price){
   let result = await fetch(url)
   let foo = await result.json()
   
-  return await price/Number(foo.data.amount)
+  return price/Number(foo.data.amount)
 }
 
 function donate(lockAddress, element) {
   let buttonValue = element.getAttribute("data-amount");
-  // let value = ethers.utils.parseUnits(ethPriceConversion(buttonValue), 18);
 
-  console.log('what is this value', ethPriceConversion(5))
-  console.log('this is the button value', buttonValue)
+  let convertedPrice = ethPriceConversion(5) 
+  console.log('this is the converted price', convertedPrice)
 
   let value = ethers.utils.parseUnits(buttonValue, 18);
 
