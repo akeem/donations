@@ -21,7 +21,7 @@ async function ethPriceConversion(price){
 function donate(lockAddress, element) {
   let buttonValue = element.getAttribute("data-amount");
 
-  let convertedPrice = ethPriceConversion(5) 
+  let convertedPrice = await ethPriceConversion(5) 
   console.log('this is the converted price', convertedPrice)
 
   let value = ethers.utils.parseUnits(buttonValue, 18);
